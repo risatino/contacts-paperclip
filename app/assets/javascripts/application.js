@@ -16,3 +16,4 @@
 //= require bootstrap-sprockets
 //= require signature_pad
 //= require_tree .
+
