@@ -1,13 +1,13 @@
 class DocumentsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_admin!
     skip_before_action :verify_terms_acceptance
 
     def new
-      @document = current_user.build_document
+      @document = current_admin.build_document
     end
 
     def create
-      @document = current_user.build_document(document_params)
+      @document = current_admin.build_document(document_params)
       @document.signed_on = DateTime.now
       if @document.save
         redirect_to root_url, notice: 'Terms and Conditions accepted.'
